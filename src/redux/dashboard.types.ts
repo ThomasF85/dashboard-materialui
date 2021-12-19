@@ -1,0 +1,7 @@
+export const DashboardActionTypes = {
+    ENTER_EDIT_MODE: 'ENTER_EDIT_MODE',
+    CANCEL_EDIT_MODE: 'CANCEL_EDIT_MODE',
+    DELETE_WIDGET: 'DELETE_WIDGET',
+    MOVE_ROW_DOWN: 'MOVE_ROW_DOWN',
+    MOVE_ROW_UP: 'MOVE_ROW_UP',
+};

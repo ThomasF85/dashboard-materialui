@@ -2,9 +2,12 @@ import { Bar } from 'react-chartjs-2';
 import { Box, Button, Card, CardContent, CardHeader, Divider, useTheme } from '@mui/material';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
+import React from "react";
+import {WidgetProps} from "../type.def";
 
-const BarChart = () => {
+const BarChart: React.FC<WidgetProps> = (props: WidgetProps) => {
     const theme = useTheme();
+    const { height } = props;
 
     const data = {
         datasets: [
@@ -82,7 +85,7 @@ const BarChart = () => {
     };
 
     return (
-        <Card sx={{ height: 'calc(100% - 150px)' }}>
+        <Card sx={{ height: height }}>
             <CardHeader
                 action={(
                     <Button

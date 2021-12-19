@@ -5,6 +5,7 @@ export enum WidgetType {
 }
 
 export type TRow = {
+    id: string,
     columns: TColumn[]
 }
 
@@ -13,7 +14,7 @@ export type TColumn = {
     xs: number
     sm: number
     md: number
-    widgets: TWidget[]
+    widgets: Array<TWidget | null>
 }
 
 export type TWidget = {

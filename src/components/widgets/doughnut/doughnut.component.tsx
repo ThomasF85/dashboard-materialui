@@ -3,9 +3,12 @@ import { Box, Card, CardContent, CardHeader, Divider, Typography, useTheme } fro
 import LaptopMacIcon from '@mui/icons-material/LaptopMac';
 import PhoneIcon from '@mui/icons-material/Phone';
 import TabletIcon from '@mui/icons-material/Tablet';
+import React from "react";
+import {WidgetProps} from "../type.def";
 
-const Doughnut = () => {
+const Doughnut: React.FC<WidgetProps> = (props: WidgetProps) => {
     const theme = useTheme();
+    const { height } = props;
 
     const data = {
         datasets: [
@@ -64,7 +67,7 @@ const Doughnut = () => {
     ];
 
     return (
-        <Card sx={{ height: 'calc(100% - 150px)' }}>
+        <Card sx={{ height: height }}>
             <CardHeader title="Traffic by Device" />
             <Divider />
             <CardContent>
