@@ -2,73 +2,91 @@ import {TColumn, TRow, WidgetType} from "../common/type.def";
 import {randomId} from "../common/utils";
 import {DashboardState} from "./type";
 
-const OneQuarterColumn: (components: WidgetType[]) => TColumn = (components: WidgetType[]) => {
+export const OneQuarterColumn: (components: Array<WidgetType | null>) => TColumn = (components: Array<WidgetType | null>) => {
     return {
         id: randomId(),
         xs: 12,
         sm: 6,
         md: 3,
         widgets: components.map(type => {
+            if (type === null) {
+                return null;
+            }
             return {id: randomId(), type: type};
         })
     }
 }
 
-const OneThirdColumn: (components: WidgetType[]) => TColumn = (components: WidgetType[]) => {
+export const OneThirdColumn: (components: Array<WidgetType | null>) => TColumn = (components: Array<WidgetType | null>) => {
     return {
         id: randomId(),
         xs: 12,
         sm: 12,
         md: 4,
         widgets: components.map(type => {
+            if (type === null) {
+                return null;
+            }
             return {id: randomId(), type: type};
         })
     }
 }
 
-const OneHalfColumn: (components: WidgetType[]) => TColumn = (components: WidgetType[]) => {
+export const OneHalfColumn: (components: Array<WidgetType | null>) => TColumn = (components: Array<WidgetType | null>) => {
     return {
         id: randomId(),
         xs: 12,
         sm: 6,
         md: 6,
         widgets: components.map(type => {
+            if (type === null) {
+                return null;
+            }
             return {id: randomId(), type: type};
         })
     }
 }
 
-const FullColumn: (components: WidgetType[]) => TColumn = (components: WidgetType[]) => {
+export const FullColumn: (components: Array<WidgetType | null>) => TColumn = (components: Array<WidgetType | null>) => {
     return {
         id: randomId(),
         xs: 12,
         sm: 12,
         md: 12,
         widgets: components.map(type => {
+            if (type === null) {
+                return null;
+            }
             return {id: randomId(), type: type};
         })
     }
 }
 
-const TwoThirdsBiggerColumn: (components: WidgetType[]) => TColumn = (components: WidgetType[]) => {
+export const TwoThirdsBiggerColumn: (components: Array<WidgetType | null>) => TColumn = (components: Array<WidgetType | null>) => {
     return {
         id: randomId(),
         xs: 12,
         sm: 12,
         md: 8,
         widgets: components.map(type => {
+            if (type === null) {
+                return null;
+            }
             return {id: randomId(), type: type};
         })
     }
 }
 
-const TwoThirdsSmallerColumn: (components: WidgetType[]) => TColumn = (components: WidgetType[]) => {
+export const TwoThirdsSmallerColumn: (components: Array<WidgetType | null>) => TColumn = (components: Array<WidgetType | null>) => {
     return {
         id: randomId(),
         xs: 12,
         sm: 12,
         md: 4,
         widgets: components.map(type => {
+            if (type === null) {
+                return null;
+            }
             return {id: randomId(), type: type};
         })
     }
@@ -76,6 +94,14 @@ const TwoThirdsSmallerColumn: (components: WidgetType[]) => TColumn = (component
 
 export const INITIAL_STATE: DashboardState = {
     rows: [
+        {
+            id: randomId(),
+            columns: [OneThirdColumn([WidgetType.SIMPLE_DELTA]), OneThirdColumn([WidgetType.SIMPLE_DELTA]), OneThirdColumn([WidgetType.SIMPLE_DELTA])]
+        },
+        {
+            id: randomId(),
+            columns: [OneHalfColumn([WidgetType.SIMPLE_DELTA]), OneHalfColumn([WidgetType.SIMPLE_DELTA])]
+        },
         {
             id: randomId(),
             columns: [OneQuarterColumn([WidgetType.SIMPLE_DELTA]), OneQuarterColumn([WidgetType.SIMPLE_DELTA]), OneQuarterColumn([WidgetType.SIMPLE_DELTA]), OneQuarterColumn([WidgetType.SIMPLE_DELTA])]
@@ -90,8 +116,9 @@ export const INITIAL_STATE: DashboardState = {
         },
     ],
     edit: false,
-    addWidgetModal: { open: false, columnID: '', rowIndex: 0 },
     latestNonEditedRows: [],
+    addWidgetModal: { open: false, columnID: '', rowIndex: 0 },
+    addRowModalOpen: false,
 }
 
 const deleteWidgetIfPresent: (row: TRow, widgetID: string) => TRow = (row: TRow, widgetID: string) => {

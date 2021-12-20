@@ -58,6 +58,27 @@ const dashboardReducer = (state = INITIAL_STATE, action: DashboardAction): Dashb
                 ...state,
                 addWidgetModal: { open: false, columnID: '', rowIndex: 0 },
             };
+        case DashboardActionTypes.OPEN_ADD_ROW_MODAL:
+            return {
+                ...state,
+                addRowModalOpen: true,
+            };
+        case DashboardActionTypes.CLOSE_ADD_ROW_MODAL:
+            return {
+                ...state,
+                addRowModalOpen: false,
+            };
+        case DashboardActionTypes.ADD_ROW:
+            return {
+                ...state,
+                rows: [...state.rows, action.payload.row],
+                addRowModalOpen: false,
+            };
+        case DashboardActionTypes.DELETE_ROW:
+            return {
+                ...state,
+                rows: state.rows.filter(row => row.id !== action.payload.rowID),
+            };
         default:
             return state;
     }

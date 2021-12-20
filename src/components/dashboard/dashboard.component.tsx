@@ -8,15 +8,17 @@ import {selectIsEditMode, selectRows} from "../../redux/dashboard.selectors";
 import {DashboardAction} from "../../redux/type";
 import {Dispatch} from "redux";
 import {
-    cancelEditMode,
+    cancelEditMode, deleteRow,
     enterEditMode,
     moveRowDown,
-    moveRowUp,
+    moveRowUp, openAddRowModal,
     saveAndExitEditMode
 } from "../../redux/dashboard.actions";
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import AddWidgetModal from "../addwidgetmodal/add-widget-modal.component";
+import AddRowModal from "../addrowmodal/addRowModal.component";
 
 const gridElement = (column: TColumn, editMode: boolean) => {
     const xs: number = editMode ? 2 * column.xs : column.xs;
@@ -63,6 +65,9 @@ const gridEditMode = (buttonGroup: JSX.Element, rows: TRow[], dispatch: Dispatch
                         <IconButton onClick={() => dispatch(moveRowUp(row.id))} color="primary">
                             <ArrowUpwardIcon fontSize="large"/>
                         </IconButton>
+                        <IconButton onClick={() => dispatch(deleteRow(row.id))} color="error">
+                            <DeleteForeverIcon fontSize="large"/>
+                        </IconButton>
                         <IconButton onClick={() => dispatch(moveRowDown(row.id))} color="primary">
                             <ArrowDownwardIcon fontSize="large"/>
                         </IconButton>
@@ -103,7 +108,7 @@ const Dashboard: React.FC = () => {
                 <Button variant="contained" onClick={() => dispatch(saveAndExitEditMode())}>save</Button>
             </Grid>
             <Grid item>
-                <Button variant="contained">Add row</Button>
+                <Button variant="contained" onClick={() => dispatch(openAddRowModal())}>Add row</Button>
             </Grid>
         </Grid>
     );
@@ -126,6 +131,7 @@ const Dashboard: React.FC = () => {
                 {editMode ? gridEditMode(buttonGroupEdit, rows, dispatch, theme) : gridWatchMode(buttonGroupWatch, rows)}
             </Container>
             <AddWidgetModal />
+            <AddRowModal />
         </Box>
     );
 }

@@ -10,7 +10,7 @@ import EmptyWidget from "../widgets/emptywidget/empty-widget.component";
 import {Dispatch} from "redux";
 import {DashboardAction} from "../../redux/type";
 import {useDispatch} from "react-redux";
-import {addWidget, deleteWidget, openAddWidgetModal} from "../../redux/dashboard.actions";
+import {deleteWidget, openAddWidgetModal} from "../../redux/dashboard.actions";
 
 const WidgetContainer: React.FC<WidgetContainerProps> = (props) => {
     const {widget, editMode, columnID, rowIndex} = props;

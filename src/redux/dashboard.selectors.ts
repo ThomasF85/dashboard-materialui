@@ -17,3 +17,8 @@ export const selectAddWidgetModalState: Selector<DashboardState, TAddWidgetModal
     [(state: DashboardState) => state.addWidgetModal],
     (addWidgetModalState: TAddWidgetModalState) => addWidgetModalState,
 );
+
+export const selectIsAddRowModalOpen: Selector<DashboardState, boolean> = createSelector(
+    [(state: DashboardState) => state.addRowModalOpen],
+    (addRowModalOpen: boolean) => addRowModalOpen,
+);
