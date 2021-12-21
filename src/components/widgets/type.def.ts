@@ -1,3 +1,3 @@
 export type WidgetProps = {
-    height: string
-}
+    height: string;
+};

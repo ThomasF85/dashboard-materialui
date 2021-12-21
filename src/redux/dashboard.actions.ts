@@ -1,6 +1,6 @@
-import {DashboardAction} from "./type";
-import {DashboardActionTypes} from "./dashboard.types";
-import {TRow, WidgetType} from "../common/type.def";
+import { DashboardAction } from './type';
+import { DashboardActionTypes } from './dashboard.types';
+import { TRow, WidgetType } from '../common/type.def';
 
 export const enterEditMode = (): DashboardAction => ({
     type: DashboardActionTypes.ENTER_EDIT_MODE,
@@ -53,10 +53,10 @@ export const closeAddRowModal = (): DashboardAction => ({
 
 export const addRow = (row: TRow): DashboardAction => ({
     type: DashboardActionTypes.ADD_ROW,
-    payload: { row }
+    payload: { row },
 });
 
 export const deleteRow = (rowID: string): DashboardAction => ({
     type: DashboardActionTypes.DELETE_ROW,
-    payload: { rowID }
+    payload: { rowID },
 });

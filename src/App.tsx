@@ -1,13 +1,11 @@
 import React from 'react';
 import './App.css';
-import Dashboard from "./components/dashboard/dashboard.component";
+import Dashboard from './components/dashboard/dashboard.component';
 
-function App() {
-  return (
+const App: React.FC = () => (
     <div className="App">
-      <Dashboard />
+        <Dashboard />
     </div>
-  );
-}
+);
 
 export default App;

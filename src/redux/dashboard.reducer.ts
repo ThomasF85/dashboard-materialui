@@ -3,10 +3,10 @@ import {
     executeDeleteWidget,
     executeMoveRowDown,
     executeMoveRowUp,
-    INITIAL_STATE
-} from "./dashboard.utils";
-import {DashboardAction, DashboardState} from "./type";
-import {DashboardActionTypes} from "./dashboard.types";
+    INITIAL_STATE,
+} from './dashboard.utils';
+import { DashboardAction, DashboardState } from './type';
+import { DashboardActionTypes } from './dashboard.types';
 
 const dashboardReducer = (state = INITIAL_STATE, action: DashboardAction): DashboardState => {
     switch (action.type) {
@@ -45,7 +45,12 @@ const dashboardReducer = (state = INITIAL_STATE, action: DashboardAction): Dashb
         case DashboardActionTypes.ADD_WIDGET:
             return {
                 ...state,
-                rows: executeAddWidget(state.rows, action.payload.columnID, action.payload.rowIndex, action.payload.type),
+                rows: executeAddWidget(
+                    state.rows,
+                    action.payload.columnID,
+                    action.payload.rowIndex,
+                    action.payload.type,
+                ),
                 addWidgetModal: { open: false, columnID: '', rowIndex: 0 },
             };
         case DashboardActionTypes.OPEN_ADD_WIDGET_MODAL:
@@ -77,7 +82,7 @@ const dashboardReducer = (state = INITIAL_STATE, action: DashboardAction): Dashb
         case DashboardActionTypes.DELETE_ROW:
             return {
                 ...state,
-                rows: state.rows.filter(row => row.id !== action.payload.rowID),
+                rows: state.rows.filter((row) => row.id !== action.payload.rowID),
             };
         default:
             return state;
