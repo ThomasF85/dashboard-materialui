@@ -46,7 +46,7 @@ const EditabledGrid: React.FC = () => {
             {rows
                 .map((row, index) => {
                     const columns: any = [
-                        <Grid item key={row.id + '1'} xs={10} md={11}>
+                        <Grid item key={row.id + '1'} style={{ width: 'calc(100% - 75px)' }}>
                             <Grid container spacing={3}>
                                 {row.columns.map((column) => (
                                     <GridCell key={column.id} column={column} editMode />
@@ -55,13 +55,13 @@ const EditabledGrid: React.FC = () => {
                         </Grid>,
                     ];
                     columns.push(
-                        <Grid item key={row.id + '2'} xs={2} md={1}>
+                        <Grid item key={row.id + '2'} style={{ width: '75px' }}>
                             <div
                                 style={{
                                     backgroundColor: theme.palette.grey['300'],
                                     width: '50px',
                                     height: 'calc(100% - 30px)',
-                                    margin: 'auto',
+                                    marginTop: '8px',
                                     display: 'flex',
                                     flexDirection: 'column',
                                 }}
