@@ -8,20 +8,20 @@ import WatchableGrid from './grid/watchable-grid.component';
 import EditabledGrid from './grid/editabled-grid.component';
 
 const Dashboard: React.FC = () => {
-    const editMode = useSelector(selectIsEditMode);
+   const editMode = useSelector(selectIsEditMode);
 
-    return (
-        <Box
-            sx={{
-                flexGrow: 1,
-                py: 2,
-            }}
-        >
-            <Container maxWidth={false}>{editMode ? <EditabledGrid /> : <WatchableGrid />}</Container>
-            <AddWidgetModal />
-            <AddRowModal />
-        </Box>
-    );
+   return (
+      <Box
+         sx={{
+            flexGrow: 1,
+            py: 2
+         }}
+      >
+         <Container maxWidth={false}>{editMode ? <EditabledGrid /> : <WatchableGrid />}</Container>
+         <AddWidgetModal />
+         <AddRowModal />
+      </Box>
+   );
 };
 
 export default Dashboard;

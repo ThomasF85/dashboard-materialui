@@ -6,10 +6,10 @@ import dashboardReducer from './dashboard.reducer';
 const middlewares = [];
 
 if (process.env.NODE_ENV === 'development') {
-    middlewares.push(logger);
+   middlewares.push(logger);
 }
 
 export const store: Store<DashboardState, DashboardAction> = createStore(
-    dashboardReducer,
-    applyMiddleware(...middlewares),
+   dashboardReducer,
+   applyMiddleware(...middlewares)
 );

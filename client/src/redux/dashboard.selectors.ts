@@ -4,21 +4,21 @@ import { TRow } from '../common/type.def';
 import { createSelector } from 'reselect';
 
 export const selectRows: Selector<DashboardState, TRow[]> = createSelector(
-    [(state: DashboardState) => state.rows],
-    (rows: TRow[]) => rows,
+   [(state: DashboardState) => state.rows],
+   (rows: TRow[]) => rows
 );
 
 export const selectIsEditMode: Selector<DashboardState, boolean> = createSelector(
-    [(state: DashboardState) => state.edit],
-    (edit: boolean) => edit,
+   [(state: DashboardState) => state.edit],
+   (edit: boolean) => edit
 );
 
 export const selectAddWidgetModalState: Selector<DashboardState, TAddWidgetModalState> = createSelector(
-    [(state: DashboardState) => state.addWidgetModal],
-    (addWidgetModalState: TAddWidgetModalState) => addWidgetModalState,
+   [(state: DashboardState) => state.addWidgetModal],
+   (addWidgetModalState: TAddWidgetModalState) => addWidgetModalState
 );
 
 export const selectIsAddRowModalOpen: Selector<DashboardState, boolean> = createSelector(
-    [(state: DashboardState) => state.addRowModalOpen],
-    (addRowModalOpen: boolean) => addRowModalOpen,
+   [(state: DashboardState) => state.addRowModalOpen],
+   (addRowModalOpen: boolean) => addRowModalOpen
 );

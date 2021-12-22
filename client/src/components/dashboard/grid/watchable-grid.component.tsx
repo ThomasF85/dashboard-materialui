@@ -8,28 +8,28 @@ import { DashboardAction } from '../../../redux/type';
 import GridCell from './grid-cell.component';
 
 const WatchableGrid: React.FC = () => {
-    const rows = useSelector(selectRows);
-    const dispatch: Dispatch<DashboardAction> = useDispatch();
+   const rows = useSelector(selectRows);
+   const dispatch: Dispatch<DashboardAction> = useDispatch();
 
-    return (
-        <Grid container spacing={3} columns={12}>
-            <Grid item xs={12}>
-                <Grid container direction="row-reverse" spacing={1}>
-                    <Grid item>
-                        <Button variant="contained" onClick={() => dispatch(enterEditMode())}>
-                            edit
-                        </Button>
-                    </Grid>
-                </Grid>
+   return (
+      <Grid container spacing={3} columns={12}>
+         <Grid item xs={12}>
+            <Grid container direction="row-reverse" spacing={1}>
+               <Grid item>
+                  <Button variant="contained" onClick={() => dispatch(enterEditMode())}>
+                     edit
+                  </Button>
+               </Grid>
             </Grid>
-            {rows
-                .map((row) => row.columns)
-                .flat()
-                .map((column) => (
-                    <GridCell key={column.id} column={column} editMode={false} />
-                ))}
-        </Grid>
-    );
+         </Grid>
+         {rows
+            .map(row => row.columns)
+            .flat()
+            .map(column => (
+               <GridCell key={column.id} column={column} editMode={false} />
+            ))}
+      </Grid>
+   );
 };
 
 export default WatchableGrid;
