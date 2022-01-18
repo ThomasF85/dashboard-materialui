@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Grid, useTheme } from '@mui/material';
+import { Button, Grid } from '@mui/material';
 import { enterEditMode } from '../../../redux/dashboard.actions';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectRows } from '../../../redux/dashboard.selectors';
